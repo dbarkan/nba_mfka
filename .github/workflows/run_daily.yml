@@ -1,0 +1,13 @@
+name: Run NBA schedule script daily
+on:
+  schedule:
+    - cron: "0 13 * * *"  # 13:00 UTC = 9:00 AM Eastern
+  workflow_dispatch:       # lets you run manually
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run script
+        run: python nba_schedule_stub.py
+
